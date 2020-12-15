@@ -24,5 +24,13 @@
     <ItemGroup>
         <EmbeddedResource Include="Resources/*.js" />
     </ItemGroup>
+    
+    <Target Name="Ensure NPM Installed" BeforeTargets="Build">
+        <Exec Command="npm install" />
+    </Target>
+    
+    <Target Name="Compile CleanCss" AfterTargets="Ensure NPM Installed">
+        <Exec Command="npm start" />
+    </Target>
 
 </Project>
