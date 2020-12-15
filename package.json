@@ -1,0 +1,17 @@
+{
+  "name": "cleancss.net",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "start": "browserify --standalone CleanCSS node_modules/clean-css/index.js | terser -c -m -o CleanCSS.NET/Resources/cleancss-browser.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "clean-css": "^4.2.3",
+    "terser": "^5.5.1"
+  }
+}

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.ClearScript.Core" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$([MSBuild]::IsOsPlatform(Linux))' == 'true'">
+        <PackageReference Include="Microsoft.ClearScript.linux-x64" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$([MSBuild]::IsOsPlatform(OSX))' == 'true'">
+        <PackageReference Include="Microsoft.ClearScript.osx-x64" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$([MSBuild]::IsOsPlatform(Windows))' == 'true'">
+        <PackageReference Include="Microsoft.ClearScript.Windows" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Resources/*.js" />
+    </ItemGroup>
+
+</Project>

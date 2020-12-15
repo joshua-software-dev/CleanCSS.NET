@@ -1,0 +1,13 @@
+.idea/
+.idea/*
+CleanCSS.NET.Tests/bin/
+CleanCSS.NET.Tests/bin/*
+CleanCSS.NET.Tests/obj/
+CleanCSS.NET.Tests/obj/*
+CleanCSS.NET/Resources/cleancss-browser.js
+CleanCSS.NET/bin/
+CleanCSS.NET/bin/*
+CleanCSS.NET/obj/
+CleanCSS.NET/obj/*
+node_modules/
+node_modules/*
