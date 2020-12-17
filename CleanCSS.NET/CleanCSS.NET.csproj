@@ -6,38 +6,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.ClearScript.Core" Version="7.0.0" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$([MSBuild]::IsOsPlatform(Linux))' == 'true'">
-        <PackageReference Include="Microsoft.ClearScript.linux-x64" Version="7.0.0" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$([MSBuild]::IsOsPlatform(OSX))' == 'true'">
-        <PackageReference Include="Microsoft.ClearScript.osx-x64" Version="7.0.0" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$([MSBuild]::IsOsPlatform(Windows))' == 'true'">
-        <PackageReference Include="Microsoft.ClearScript.Windows" Version="7.0.0" />
+        <PackageReference Include="Microsoft.ClearScript.Core" Version="7.0.0" />
+        <PackageReference Include="Microsoft.ClearScript.V8" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup>
         <EmbeddedResource Include="Resources/*.js" />
     </ItemGroup>
 
-    <Target 
-        BeforeTargets="Build"
-        Condition="Exists('$(MSBuildProjectDirectory)/Resources/cleancss-browser.js') == 'false'"
-        Name="Ensure NPM Installed"
-    >
+    <Target BeforeTargets="Build" Condition="Exists('$(MSBuildProjectDirectory)/Resources/cleancss-browser.js') == 'false'" Name="Ensure NPM Installed">
         <Exec Command="npm install" />
     </Target>
 
-    <Target 
-        AfterTargets="Ensure NPM Installed"
-        Condition="Exists('$(MSBuildProjectDirectory)/Resources/cleancss-browser.js') == 'false'"
-        Name="Compile CleanCss"
-    >
+    <Target AfterTargets="Ensure NPM Installed" Condition="Exists('$(MSBuildProjectDirectory)/Resources/cleancss-browser.js') == 'false'" Name="Compile CleanCss">
         <Exec Command="npm start" />
     </Target>
 

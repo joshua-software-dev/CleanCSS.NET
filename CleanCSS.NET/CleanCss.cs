@@ -1,7 +1,6 @@
 ﻿using Microsoft.ClearScript.JavaScript;
 using Microsoft.ClearScript;
 using System.Collections.Generic;
-using System;
 
 
 namespace CleanCSS.NET
